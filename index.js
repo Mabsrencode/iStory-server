@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import postRoutes from "./routes/posts.route.js";
-
+import userRoutes from "./routes/user.route.js";
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -44,5 +44,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => console.log(`Starting server on port ${PORT}`));
